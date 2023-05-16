@@ -6,7 +6,7 @@ export function LoginPage() {
     <div className="login-page">
       <div className="login-container">
         <img
-          src={require("../assets/login-image.jpg").default}
+          src={require("../assets/login-image.jpg")}
           alt="Login"
           className="login-image"
         />
