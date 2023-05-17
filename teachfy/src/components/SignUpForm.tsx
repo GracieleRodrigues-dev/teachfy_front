@@ -34,7 +34,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div >
         <label htmlFor="name">Nome Completo</label>
         <input
           type="text"
@@ -43,7 +43,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
           onChange={(e) => setName(e.target.value)}
         />
       </div>
-      <div>
+      <div >
         <label htmlFor="email">E-mail</label>
         <input
           type="email"
@@ -52,7 +52,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div>
+      <div >
         <label htmlFor="password">Senha</label>
         <input
           type="password"
@@ -61,14 +61,14 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <div>
+      <div >
         <label htmlFor="confirmPassword">Confirmação de Senha</label>
         <input
           type="password"
           id="confirmPassword"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          onBlur={validatePassword} // Adicionado o evento onBlur
+          onBlur={validatePassword}
         />
         {passwordError && <p>{passwordError}</p>}
       </div>
