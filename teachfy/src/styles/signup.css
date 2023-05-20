@@ -6,8 +6,7 @@
     font-family: 'Poppins', sans-serif;
     background-color: #1e1e1e;
     color: #ffffff;
-  }
-  
+}
   .signup-container {
     display: flex;
     flex-direction: column;
@@ -75,9 +74,7 @@
   .signup-container button:disabled {
     background-color: #808080;
     cursor: not-allowed;
+    margin-bottom: 16px;
   }
   
-  .signup-links {
-    color: #1e1e1e;
-  }
   

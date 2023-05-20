@@ -1,0 +1,39 @@
+/* Sidebar.css */
+
+.sidebar {
+  width: 60px;
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  transition: width 0.3s;
+}
+
+.sidebar.expanded {
+  width: 200px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+
+.sidebar-icon {
+  font-size: 24px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sidebar-menu-item:hover {
+  background-color: #555;
+}
