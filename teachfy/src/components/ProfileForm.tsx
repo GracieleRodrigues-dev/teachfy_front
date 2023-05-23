@@ -37,5 +37,5 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ onSubmit, name, email 
       </div>
       {/* <button type="submit">Alterar Dados</button> */}
     </form>
-  );
+      );
 };

@@ -1,6 +1,6 @@
 // import { Navbar } from "../components/Navbar";
 import { ProfileForm } from "../components/ProfileForm";
-import { Sidebar } from "../components/Sidebar";
+import Sidebar from "../components/SidebarMenu/Sidebar";
 import '../styles/ProfilePage.css';
 
 export function ProfilePage() {
