@@ -6,7 +6,8 @@ import {
     TbCards,
     TbBuildingCommunity,
     FaCog,
-    GoGraph
+    GoGraph,
+    BiHelpCircle
 } from 'react-icons/all';
 import { SidebarItem } from './SidebarItem';
 
@@ -21,12 +22,12 @@ export const SidebarData: SidebarItem[] = [
             {
                 title: 'Meus Decks',
                 path: '/decks/meus-decks',
-                icon: <TbCards />
+                icon: <TbCards />,
             },
             {
                 title: 'Novo Deck',
                 path: '/decks/novo-deck',
-                icon: <BsPlusCircleDotted />
+                icon: <BsPlusCircleDotted />,
             }
         ]
     },
@@ -39,6 +40,11 @@ export const SidebarData: SidebarItem[] = [
         title: 'Desempenho',
         path: '/desempenho',
         icon: <GoGraph />
+    },
+    {
+        title: 'Ajuda',
+        path: '/ajuda',
+        icon: <BiHelpCircle/>
     },
     {
         title: 'Configurações',

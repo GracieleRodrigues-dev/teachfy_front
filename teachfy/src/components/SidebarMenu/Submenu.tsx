@@ -13,13 +13,20 @@ const SidebarLink = styled(Link)`
     align-items: center;
     height: 3.75rem;
     font-size: 1.125rem;
-    padding: 2rem;
+    padding: 1rem;
     text-decoration: none;
     color: #ffffff;
+    letter-spacing: -0.01em;
+
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
 
     &:hover {
         background-color: #1f1f1b;
-        border-left: 4px solid #6d44dc;
+        border-left: 4px solid #3F51B5;
     }
 `;
 
@@ -38,13 +45,17 @@ const DropdownLink = styled(Link)`
     color: #ffffff;
 
     &:hover {
-        background-color: #6d44dc;
+        background-color: #1f1f1b;
     }
 `;
 
+// ...
 const Submenu: FC<SidebarLinkProps> = ({ item }) => {
     const [subnav, setSubnav] = useState(false);
-    const showSubnav = () => setSubnav(!subnav);
+    const showSubnav = (event: React.MouseEvent) => {
+        event.preventDefault();
+        setSubnav(!subnav);
+    };
 
     return (
         <>
@@ -53,10 +64,10 @@ const Submenu: FC<SidebarLinkProps> = ({ item }) => {
                     {item.icon}
                     <SidebarLabel>{item.title}</SidebarLabel>
                 </div>
-                <div>{item?.subnav && subnav ? item?.iconOpened : item?.iconClosed}</div>
+                <div>{item.subnav && (subnav ? item.iconOpened : item.iconClosed)}</div>
             </SidebarLink>
             {subnav &&
-                item?.subnav?.map((subnavItem, index) => {
+                item.subnav?.map((subnavItem, index) => {
                     return (
                         <DropdownLink to={subnavItem.path} key={index}>
                             {subnavItem.icon}
