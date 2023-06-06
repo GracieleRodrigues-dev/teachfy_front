@@ -1,0 +1,120 @@
+.profile-container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .profile-section {
+    display: block;
+  }
+  
+  .profile-title {
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+  
+  .profile-data {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .profile-data p {
+    color: #C6C6C7;
+    margin-bottom: 10px;
+  }
+  
+  .profile-data .profile-label {
+    color:  #FFFFFF;
+    font-weight: bold;
+  }
+  
+  .profile-data .profile-value {
+    color: #C6C6C7;
+    font-weight: normal;
+  }
+  
+  .profile-buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .profile-button {
+    background-color: #3F51B5;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .profile-button:last-child {
+    margin-right: 0;
+  }
+  
+.custom-modal{
+    background: transparent;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+}
+  
+.custom-OverlayClass {
+    background: transparent;
+}
+  
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #292929;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .modal-label {
+    font-weight: bold;
+  }
+  
+  .modal-input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .modal-button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .modal-button:hover {
+    background-color: #0056b3;
+  }
