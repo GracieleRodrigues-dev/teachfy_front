@@ -1,66 +1,77 @@
+
+
 .login-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-image {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border-radius: 50%;
-  }
-  
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .login-form input {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .login-form button {
-    background-color: #6c5ce7;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .login-form button:hover {
-    background-color: #4834d4;
-  }
-  
-  .login-links {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .login-links a {
-    color: #6c5ce7;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("../assets/background_login.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.logo-login {
+  display: block;
+  margin: auto;
+  max-width: 48%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: black;
+
+
+}
+
+.input-login {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+
+.button-entrar {
+  background-color: #7b66db;
+  color: white;  
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 300px;
+}
+
+
+
+.signup-container-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: black;
+
+}
+
+.signup-container-login p {
+  margin: 0;
+}
+
+.signup-container-login a {
+  color: #7b66db;
+  text-decoration: underline;
+}
