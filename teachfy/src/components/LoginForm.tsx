@@ -1,11 +1,64 @@
+import  { useState } from 'react';
+import '../styles/login.css';
+import logoIcon from "../assets/logo_with_name.png"; // Importe a imagem do diretório assets
+import axios from 'axios';
 
 
-export function LoginForm() {
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    try {
+      // Realizar a chamada à API para autenticar o usuário
+      const response = await axios.post('/api/login', {
+        email: email,
+        password: password
+      });
+  
+      // Verificar se a autenticação foi bem-sucedida
+      if (response.status === 200) {
+        // Autenticação bem-sucedida, redirecionar para a página de perfil
+        window.location.href = '/profile';
+      } else {
+        // Caso contrário, exibir uma mensagem de erro ou tomar outra ação apropriada
+        console.log('Falha na autenticação');
+      }
+    } catch (error) {
+      // Lidar com erros da chamada à API
+      console.log('Erro ao autenticar usuário', error);
+    }
+  };
+
   return (
-    <form className="login-form">
-      <input type="email" placeholder="E-mail" />
-      <input type="password" placeholder="Senha" />
-      <button type="submit">Entrar</button>
-    </form>
+    <div className="login-page">
+  <div className="form-login">
+    <img src={logoIcon} alt="Logo" className="logo-login" />
+    <input
+      type="email"
+      className="input-login"
+      placeholder="Email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+    />
+    <input
+      type="password"
+      className="input-login"
+      placeholder="Senha"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+    />
+    <button className="button-entrar" onClick={handleLogin}>
+      Entrar
+    </button>
+  </div>
+
+  <div className="signup-container-login">
+  <p>Não tem uma conta? <a href="/signup">Cadastre-se</a></p>
+</div>
+</div>
+
   );
-}
+};
+
+export default Login;
