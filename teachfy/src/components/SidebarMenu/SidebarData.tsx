@@ -50,5 +50,5 @@ export const SidebarData: SidebarItem[] = [
         title: 'Configurações',
         path: '/configurations',
         icon: <FaCog />
-    }
+    }   
 ];
