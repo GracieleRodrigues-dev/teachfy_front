@@ -8,6 +8,7 @@ import LoginPage from './pages/LoginPage';
 import NewDeckPage from './pages/NewDeckPage';
 import NewDeckAvaliativoPage from './pages/NewDeckAvaliativoPage';
 import NewDeckFlashCardPage from './pages/NewDeckFlashCardPage';
+import NewDeckFlashCardByMePage from './pages/NewDeckFlashCardByMePage';
 
 export default function AppRoutes() {
   return (
@@ -20,6 +21,8 @@ export default function AppRoutes() {
       <Route path="/decks/novo-deck" element={<NewDeckPage/>}/>
       <Route path="/decks/novo-deck/avaliativo" element={<NewDeckAvaliativoPage/>}/>
       <Route path="/decks/novo-deck/flashcard" element={<NewDeckFlashCardPage/>}/>
+      <Route path="/decks/novo-deck/flashcard/byMe" element={<NewDeckFlashCardByMePage/>}/>
+      {/* <Route path="/decks/novo-deck/flashcard/byAI" element={<NewDeckFlashCardPage/>}/> */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
