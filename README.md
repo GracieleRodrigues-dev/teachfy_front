@@ -6,4 +6,5 @@
 ### depois de criado o projeto =>
 #### cd teachfy 
 #### npm install 
+#### npm link styled-components
 #### npm run dev
