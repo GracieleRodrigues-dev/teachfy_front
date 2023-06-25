@@ -1,0 +1,78 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card + .card {
+    margin-left: 10px; /* Espaçamento entre os cards */
+  }
+  
+  .card:not(:last-child) {
+    margin-right: 10px; /* Espaçamento entre os cards */
+  }
+
+  .creation-byMe,
+  .creation-byAI {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+  }
+
+  .creation-byMe:focus,
+  .creation-byAI:focus {
+    background-color: #3F51B5; /* Cor de fundo do botão selecionado */
+    outline: none; /* Remove a borda de foco padrão */
+  }
+  .creation-byMe:focus .description,
+  .creation-byAI:focus .description {
+    color: white;
+  }
+
+  .icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .description {
+    font-size: 14px;
+    color: #888;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-left: 200px;
+  }
+  .button-container button {
+    margin-right: 10px; /* Espaçamento entre os botões */
+  }

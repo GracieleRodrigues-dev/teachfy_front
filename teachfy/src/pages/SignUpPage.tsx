@@ -1,15 +1,16 @@
-import { SignUpForm } from '../components/SignUp/SignUpForm';
 import { Link } from 'react-router-dom';
 import '../styles/signup.css';
-import { newUser } from '../services/user/newUser';
+
 import { useNavigate } from 'react-router-dom';
+import { newUser } from '../services/user/newUser';
+import { SignUpForm } from '../components/SignUp/SignUpForm';
 
 
 export function SignUpPage() {
   const navigate  = useNavigate();
-  const handleRegister = async (name: string, email: string, password: string) => {
+  const handleRegister = async (name: string, email: string, password: string, passwordConfirmation:string) => {
     try {
-      const result = await newUser(name, email, password);
+      const result = await newUser(name, email, password,passwordConfirmation);
       if (result === 'success') {
         alert('Usuário cadastrado com sucesso!');
         navigate('/login');

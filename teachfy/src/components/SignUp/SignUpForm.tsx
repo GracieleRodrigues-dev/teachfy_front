@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 interface SignUpFormProps {
-  onSubmit: (name: string, email: string, password: string) => void;
+  onSubmit: (name: string, email: string, password: string, confirmPassword: string) => void;
 }
 
 export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
@@ -27,7 +27,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
       return;
     }
 
-    onSubmit(name, email, password);
+    onSubmit(name, email, password,confirmPassword);
   };
 
   const isSubmitDisabled = password !== confirmPassword || !name || !email || !password;
