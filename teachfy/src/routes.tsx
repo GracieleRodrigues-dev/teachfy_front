@@ -5,6 +5,10 @@ import NotFound from './pages/NotFound';
 import { SignUpPage } from './pages/SignUpPage';
 import ProfilePage from './pages/ProfilePage';
 import LoginPage from './pages/LoginPage';
+import NewDeckPage from './pages/NewDeckPage';
+import NewDeckAvaliativoPage from './pages/NewDeckAvaliativoPage';
+import NewDeckFlashCardPage from './pages/NewDeckFlashCardPage';
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -13,6 +17,9 @@ export default function AppRoutes() {
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/login" element={<LoginPage/>}/>
+      <Route path="/decks/novo-deck" element={<NewDeckPage/>}/>
+      <Route path="/decks/novo-deck/avaliativo" element={<NewDeckAvaliativoPage/>}/>
+      <Route path="/decks/novo-deck/flashcard" element={<NewDeckFlashCardPage/>}/>
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

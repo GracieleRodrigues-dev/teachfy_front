@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { IconContext } from 'react-icons';
@@ -6,33 +6,34 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import { FaUser } from 'react-icons/fa';
 import Submenu from './Submenu';
+import { fetchUserData } from '../../services/user/getUserData';
 
 const Nav = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 4rem;
-    background-color: #1C1C1E;
-    border-bottom: 1px solid #424242;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 4rem;
+  background-color: #1c1c1e;
+  border-bottom: 1px solid #424242;
 `;
 
 const SidebarNav = styled.div<{ sidebar: boolean }>`
-    width: 250px;
-    height: 100vh;
-    background-color: black;
-    position: fixed;
-    top: 0;
-    left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
-    transition: 350ms;
+  width: 250px;
+  height: 100vh;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
+  transition: 350ms;
 `;
 
 const NavIcon = styled(Link)`
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 5rem;
-    font-size: 2rem;
-    margin-left: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 5rem;
+  font-size: 2rem;
+  margin-left: 2rem;
 `;
 
 const SidebarWrap = styled.div``;
@@ -80,38 +81,58 @@ const CloseIcon = styled(AiOutlineClose)`
   font-size: 2rem;
 `;
 
-const Sidebar: FC = () => {
-    const [sidebar, setSidebar] = useState(false);
-    const showSidebar = () => setSidebar(!sidebar);
 
-    return (
-        <IconContext.Provider value={{ color: '#fff' }}>
-            <Nav>
-                <NavIcon to="#" onClick={showSidebar}>
-                    <AiOutlineMenu />
-                </NavIcon>                                  
-            </Nav>  
-            <SidebarNav sidebar={sidebar}>
-                <UserSectionWrapper>
-                    <UserSection>
-                        <UserIcon />
-                        <UserInfo>
-                            <UserName to="/profile">Graci</UserName>
-                            <UserEmail>graci@gmail.com</UserEmail>
-                        </UserInfo>
-                        <CloseIconWrapper>
-                            <CloseIcon onClick={showSidebar} />    
-                        </CloseIconWrapper>
-                    </UserSection>
-                </UserSectionWrapper>
-                <SidebarWrap>
-                    {SidebarData.map((item, index) => {
-                        return <Submenu item={item} key={index} />;
-                    })}
-                </SidebarWrap>
-            </SidebarNav>
-        </IconContext.Provider>
-    );
+interface UserData {
+  name: string;
+  email: string;
+}
+const Sidebar: FC = () => {
+  const [sidebar, setSidebar] = useState(false);
+  const [userData, setUserData] = useState<UserData | null>(null);
+  const showSidebar = () => setSidebar(!sidebar);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        //trocar o id para pegar os dados do usuário logado
+        const userId = 1;
+        const userData = await fetchUserData(userId);
+        setUserData(userData);
+      } catch (error) {
+        console.log('Erro ao buscar os dados do usuário:', error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  return (
+    <IconContext.Provider value={{ color: '#fff' }}>
+      <Nav>
+        <NavIcon to="#" onClick={showSidebar}>
+          <AiOutlineMenu />
+        </NavIcon>
+      </Nav>
+      <SidebarNav sidebar={sidebar}>
+        <UserSectionWrapper>
+          <UserSection>
+            <UserIcon />
+            <UserInfo>
+              <UserName to="/profile">{userData?.name}</UserName>
+              <UserEmail>{userData?.email}</UserEmail>
+            </UserInfo>
+            <CloseIconWrapper>
+              <CloseIcon onClick={showSidebar} />
+            </CloseIconWrapper>
+          </UserSection>
+        </UserSectionWrapper>
+        <SidebarWrap>
+          {SidebarData.map((item, index) => {
+            return <Submenu item={item} key={index} />;
+          })}
+        </SidebarWrap>
+      </SidebarNav>
+    </IconContext.Provider>
+  );
 };
 
 export default Sidebar;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../styles/ProfilePage.css';
+import '../../styles/ProfilePage.css';
 import Modal from 'react-modal';
-import axios from 'axios';
+import { setUserName } from '../../services/user/setUserName';
 
 interface ProfileFormProps {
   name: string;
@@ -28,14 +28,15 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ name, email }) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.patch('http://localhost:8000/api/users/1', { name: newName });
-      if (response.status === 200) {
+      const userId = 1; // ID do usuário
+      const result = await setUserName(userId, newName);
+      if (result === 'success') {
         alert('Nome do usuário alterado com sucesso!');
         closeModal();
         window.location.reload(); // Recarrega a página
       }
     } catch (error) {
-      alert('Erro ao alterar o nome do usuário:' + error);
+      alert(error);
     }
   };
 

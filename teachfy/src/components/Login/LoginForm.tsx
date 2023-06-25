@@ -1,6 +1,6 @@
 import  { useState } from 'react';
-import '../styles/login.css';
-import logoIcon from "../assets/logo_with_name.png"; // Importe a imagem do diretório assets
+import '../../styles/login.css';
+import logoIcon from "../../assets/logo_with_name.png"; // Importe a imagem do diretório assets
 import axios from 'axios';
 
 

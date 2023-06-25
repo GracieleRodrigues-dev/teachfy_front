@@ -1,36 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import ProfileForm from '../components/ProfileForm';
+import { useEffect, useState } from 'react';
+import ProfileForm from '../components/Profile/ProfileForm';
 import Sidebar from '../components/SidebarMenu/Sidebar';
+import { fetchUserData } from '../services/user/getUserData';
+
 
 interface UserData {
   name: string;
   email: string;
 }
 
-const ProfilePage: React.FC = () => {
+const ProfilePage = () => {
   const [userData, setUserData] = useState<UserData | null>(null);
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchData = async () => {
       try {
-        //trocar o id abaixo para pegar os dados do usuário logado
-        const response = await axios.get('http://localhost:8000/api/users/1');
-        const { name, email } = response.data.data;
-        setUserData({ name, email });
+        // Trocar o ID abaixo para pegar os dados do usuário logado
+        const userId = 1;
+        const userData = await fetchUserData(userId);
+        setUserData(userData);
       } catch (error) {
-        console.error('Erro ao buscar os dados do usuário:', error);
+        console.log('Erro ao buscar os dados do usuário:', error);
       }
     };
 
-    fetchUserData();
+    fetchData();
   }, []);
 
   return (
     <div>
-      <Sidebar/>
       {userData ? (
-        <ProfileForm name={userData.name} email={userData.email} />
+        <>
+          <Sidebar/>
+          <ProfileForm name={userData.name} email={userData.email} />
+        </>
       ) : (
         <p>Carregando dados do usuário...</p>
       )}
