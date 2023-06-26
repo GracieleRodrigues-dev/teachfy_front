@@ -1,4 +1,4 @@
-import axios from 'axios';
+import api from "../../plugins/axios";
 
 export const newUser = async (
   name: string,
@@ -13,9 +13,10 @@ export const newUser = async (
     formData.append('password', password);
     formData.append('password_confirmation', passwordConfirmation);
 
-    const response = await axios.post('http://localhost:8000/api/users', formData, {
+    //const response = await axios.post('http://localhost:8000/api/users', formData, {
+      const response = await api.post('users', formData, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
     });
 
