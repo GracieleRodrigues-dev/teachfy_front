@@ -9,6 +9,7 @@ import NewDeckPage from './pages/NewDeckPage';
 import NewDeckAvaliativoPage from './pages/NewDeckAvaliativoPage';
 import NewDeckFlashCardPage from './pages/NewDeckFlashCardPage';
 import NewDeckFlashCardByMePage from './pages/NewDeckFlashCardByMePage';
+import MyDecksPage from './pages/MyDecksPage';
 
 export default function AppRoutes() {
   return (
@@ -22,7 +23,7 @@ export default function AppRoutes() {
       <Route path="/decks/novo-deck/avaliativo" element={<NewDeckAvaliativoPage/>}/>
       <Route path="/decks/novo-deck/flashcard" element={<NewDeckFlashCardPage/>}/>
       <Route path="/decks/novo-deck/flashcard/byMe" element={<NewDeckFlashCardByMePage/>}/>
-      {/* <Route path="/decks/novo-deck/flashcard/byAI" element={<NewDeckFlashCardPage/>}/> */}
+      <Route path="/decks/meus-decks" element={<MyDecksPage/>}/> 
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
