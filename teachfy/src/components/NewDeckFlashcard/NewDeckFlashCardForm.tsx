@@ -43,6 +43,7 @@ export const NewDeckFlashCardForm= () => {
     setModalOpen(true);
   };
 
+  const isSubmitDisabled = !title || !description; // Verifica se o título e a descrição estão vazios
   return (
     <form onSubmit={handleSubmit}>
       <div className="newDeck-container">
@@ -95,7 +96,7 @@ export const NewDeckFlashCardForm= () => {
           />
         </div>
       </div>
-      <button type="submit">Criar</button>
+      <button type="submit" disabled={isSubmitDisabled}>Criar</button>
       {isModalOpen && <DeckCreationModal onClose={closeModal} onSubmit={newDeck} handleCardSelection={handleCardSelection} />}
     </form>
   );

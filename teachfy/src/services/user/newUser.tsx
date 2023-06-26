@@ -15,7 +15,8 @@ export const newUser = async (
 
     const response = await axios.post('http://localhost:8000/api/users', formData, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
+        'Accept' : 'application/json'
       },
     });
 
