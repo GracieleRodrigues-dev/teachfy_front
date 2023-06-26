@@ -17,18 +17,24 @@ export const newDeckAnki = async (data: {
 }) => {
   try {
     const formData = new FormData();
-    formData.append('user_id', String(data.user_id));
-    formData.append('folder_id', String(data.folder_id));
+    if (data.folder_id) {
+      formData.append('folder.id', String(data.folder_id));
+    }
+    formData.append('user.id', String(data.user_id));
     formData.append('name', data.name);
-    formData.append('public', String(data.ispublic));
+    formData.append('publico', String(data.ispublic));
     formData.append('clonable', String(data.clonable));
+    formData.append('feedback', String(0));
     formData.append('type', String(data.type));
-    formData.append('cards', JSON.stringify(data.cards));
+    for(let index in data.cards) {
+      formData.append(`cards[${index}].type`, String(data.cards[index].type));
+      formData.append(`cards[${index}].question`, data.cards[index].question);
+      formData.append(`cards[${index}].answer`, data.cards[index].answer);
+    }
 
     const response = await api.post('decks', formData, {
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        Authorization: 'Bearer ' + localStorage.getItem('token')
       },
     });
 

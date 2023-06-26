@@ -18,7 +18,9 @@ const Login = () => {
   
       // Verificar se a autenticação foi bem-sucedida
       if (response.status === 200) {
-        localStorage.setItem("token", response.data.data);
+        localStorage.setItem("token", response.data.data.token);
+        localStorage.setItem("userId", response.data.data.userid);
+        localStorage.setItem("userName", response.data.data.username);
         // Autenticação bem-sucedida, redirecionar para a página de perfil
         window.location.href = '/profile';
       } else {

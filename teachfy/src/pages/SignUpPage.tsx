@@ -11,7 +11,7 @@ export function SignUpPage() {
   const handleRegister = async (name: string, email: string, password: string, passwordConfirmation:string) => {
     try {
       const result = await newUser(name, email, password,passwordConfirmation);
-      if (result === 'success') {
+      if (result.status === 200) {
         alert('Usuário cadastrado com sucesso!');
         navigate('/login');
       }

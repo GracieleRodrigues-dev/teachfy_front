@@ -95,7 +95,8 @@ const Sidebar: FC = () => {
     const fetchData = async () => {
       try {
         //trocar o id para pegar os dados do usuário logado
-        const userId = 1;
+        const userStorage = localStorage.getItem('userId');
+        const userId = parseInt(userStorage ? userStorage : '0');
         const userData = await fetchUserData(userId);
         setUserData(userData);
       } catch (error) {
