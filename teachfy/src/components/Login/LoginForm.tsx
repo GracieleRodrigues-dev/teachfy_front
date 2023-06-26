@@ -1,7 +1,7 @@
 import  { useState } from 'react';
 import '../../styles/login.css';
 import logoIcon from "../../assets/logo_with_name.png"; // Importe a imagem do diretório assets
-import axios from 'axios';
+import api from '../../plugins/axios';
 
 
 const Login = () => {
@@ -11,13 +11,14 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       // Realizar a chamada à API para autenticar o usuário
-      const response = await axios.post('/api/login', {
+      const response = await api.post('/login', {
         email: email,
         password: password
       });
   
       // Verificar se a autenticação foi bem-sucedida
       if (response.status === 200) {
+        localStorage.setItem("token", response.data.data);
         // Autenticação bem-sucedida, redirecionar para a página de perfil
         window.location.href = '/profile';
       } else {
