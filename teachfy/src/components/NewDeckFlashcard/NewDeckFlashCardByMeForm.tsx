@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import AnkiCard from './AnkiCard';
+import { newDeckAnki } from '../../services/decks/newDeckAnki';
 
 interface NewDeckFlashCardByMeProps {
   title: string;
   description: string;
-  directory: string;
+  directory: number;
   isPublic: boolean;
-  isDuplicable: boolean;
+  isCloneable: boolean;
 }
 
 interface Card {
@@ -15,15 +16,60 @@ interface Card {
   backText: string;
 }
 
-export const NewDeckFlashCardByMeForm: React.FC<NewDeckFlashCardByMeProps> = ({ title, description,directory,isPublic, isDuplicable})=> {
+interface CardBD {
+  type: number;
+  question: string;
+  answer: string;
+}
+
+export const NewDeckFlashCardByMeForm: React.FC<NewDeckFlashCardByMeProps> = ({ title, description,directory,isPublic, isCloneable})=> {
   const [newTitle,setTitle] = useState(title);
   const [newDescription,setDescription] = useState(description);
   const [cards, setCards] = useState<Card[]>([{ cardNumber: 1, frontText: '', backText: '' }]);
 
-  const saveDeck = () => {
-    console.log( title, description,directory,isPublic, isDuplicable);
+  const convertCardFormat = (card: Card): CardBD => {
+    return {
+      type: 1,
+      question: card.frontText || '',
+      answer: card.backText || '',
+    };
+  };
+  
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const deckData = {
+      user_id: 1,
+      folder_id: directory ? directory : 0,
+      name: newTitle,
+      ispublic: isPublic ? 1 : 0,
+      clonable: isCloneable ? 1 : 0,
+      type: 1,
+      cards: cards.map(convertCardFormat) // Converter os objetos Card do formulário
+    };
+  
+    // Chamar a função saveDeck passando o objeto deckData
+    saveDeck(deckData);
   };
 
+  const saveDeck = async (deckData: {
+    user_id: number;
+    folder_id: number;
+    name: string;
+    ispublic: number;
+    clonable: number;
+    type: number;
+    cards: CardBD[];
+  }) => {
+    try {
+      const result = await newDeckAnki(deckData);
+      if (result === 'success') {
+        alert('Novo deck gerado com sucesso!');
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   const handleAddCard = () => {
     const nextCardNumber = cards.length + 1;
@@ -49,7 +95,7 @@ export const NewDeckFlashCardByMeForm: React.FC<NewDeckFlashCardByMeProps> = ({ 
 
 
   return (
-    <form onSubmit={saveDeck}>
+    <form onSubmit={handleSubmit}>
       <div className="newDeck-container">
         <div className="newDeck-section">
           <h2 className="newDeck-title">Novo deck de flashcard</h2>        
@@ -82,7 +128,7 @@ export const NewDeckFlashCardByMeForm: React.FC<NewDeckFlashCardByMeProps> = ({ 
           </div> 
         </div>
       </div>
-      <button type="button" onClick={saveDeck}>Salvar</button>
+      <button>Salvar</button>
     </form>
   );
 };
