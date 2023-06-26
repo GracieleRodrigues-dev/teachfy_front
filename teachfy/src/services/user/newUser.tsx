@@ -17,6 +17,7 @@ export const newUser = async (
       const response = await api.post('users', formData, {
       headers: {
         'Content-Type': 'application/json',
+        'Accept' : 'application/json'
       },
     });
 
