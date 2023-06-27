@@ -16,7 +16,8 @@ const ProfilePage = () => {
     const fetchData = async () => {
       try {
         // Trocar o ID abaixo para pegar os dados do usuário logado
-        const userId = 1;
+        const userStorage = localStorage.getItem('userId');
+        const userId = parseInt(userStorage ? userStorage : '0');
         const userData = await fetchUserData(userId);
         setUserData(userData);
       } catch (error) {

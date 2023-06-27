@@ -37,9 +37,9 @@ export const NewDeckFlashCardByMeForm: React.FC<NewDeckFlashCardByMeProps> = ({ 
   
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+    const userStorage = localStorage.getItem('userId');
     const deckData = {
-      user_id: 1,
+      user_id: parseInt(userStorage ? userStorage : '0'),
       folder_id: directory ? directory : 0,
       name: newTitle,
       ispublic: isPublic ? 1 : 0,
