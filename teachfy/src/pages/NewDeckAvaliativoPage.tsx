@@ -1,17 +1,19 @@
-import {NewDeckAvaliativoForm} from "../components/NewDeckAvaliativo/NewDeckAvaliativoForm";
+
+
+import DeckAvaliativo from "../components/NewDeckAvaliativo/DeckAvaliativo";
 import Sidebar from "../components/SidebarMenu/Sidebar";
 
-const NewDeckPage = () => {
-  const handleCreateDeck = (name: string, email: string, password: string) => {
-    // criar lógica para enviar os dados de registro para o banco
+const DeckAvaliativoPage = () => {
+  const handleCreateDeck = ( title: string,description: string,directory: string,isPublic: boolean, isDuplicable: boolean,allowFeedback: boolean,
+selectedCard: string ) => {
   };
 
 return (
     <div>
           <Sidebar/>
-          <NewDeckAvaliativoForm onSubmit={handleCreateDeck}/>
+          <DeckAvaliativo onSubmit={handleCreateDeck} titulo={""} descricao={""} diretorio={""} deckPublico={false} permitirDuplicacao={false} gerarFeedback={false}/>
     </div>
   );
 };
 
-export default NewDeckPage;
+export default DeckAvaliativoPage;

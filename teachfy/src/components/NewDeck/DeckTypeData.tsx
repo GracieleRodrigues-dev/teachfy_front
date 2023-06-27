@@ -5,7 +5,7 @@ import { TbCards } from "react-icons/tb";
 export const DeckTypeData: DeckTypeItem[] = [
     {
         title: 'Avaliativo',
-        path: '/decks/novo-deck/avaliativo',
+        path: '/decks/deck/avaliativo',
         icon: <GiNotebook/>,
         description: "Crie um questionário contendo uma lista de perguntas fechadas com opções pré-definidas para escolha ou, se preferir, questões discursivas."
     },
