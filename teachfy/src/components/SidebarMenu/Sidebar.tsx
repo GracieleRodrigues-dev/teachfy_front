@@ -22,6 +22,7 @@ const SidebarNav = styled.div<{ sidebar: boolean }>`
   height: 100vh;
   background-color: black;
   position: fixed;
+  z-index: 9999;
   top: 0;
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
   transition: 350ms;
