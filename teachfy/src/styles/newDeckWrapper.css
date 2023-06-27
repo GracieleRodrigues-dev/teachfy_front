@@ -1,4 +1,3 @@
 .newDeckWrapper:hover {
-    background-color: #c9cbd48f;
-    border-color: #c9cbd48f
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important
 }
