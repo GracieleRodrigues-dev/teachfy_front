@@ -11,7 +11,7 @@ export const DeckTypeData: DeckTypeItem[] = [
     },
     {
         title: 'Flashcards',
-        path: '/decks/novo-deck/flashcard',
+        path: '/decks/novo-deck/flashcard/byMe',
         icon: <TbCards/>,  
         description: "Crie e revise seus próprios flashcards para aprender e reter informações de maneira mais eficiente, utilizando o método de estudos Anki."      
     }

@@ -19,6 +19,16 @@ const MyDecksForm: React.FC = () => {
     }
   };
 
+  const handleStudyClick = (deckId: number) => {
+    //criar lógica para estudar o deck
+    console.log(`Estudar deck com ID: ${deckId}`);
+  };
+
+  const handleEditClick = (deckId: number) => {
+    //criar lógica para editar o deck
+    console.log(`Editar deck com ID: ${deckId}`);
+  };
+
   return (
     <div>
       <h2>Meus Decks</h2>
@@ -26,7 +36,13 @@ const MyDecksForm: React.FC = () => {
         <div key={deck.id}>
           <h3>{deck.name}</h3>
           <p>Deck público: {deck.public}</p>
-          <p>Tipo: {deck.type}</p>
+          {deck.type === 0 ? (
+            <p>Avaliativo</p>
+          ) : deck.type === 1 ? (
+            <p>Flashcard</p>
+          ) : null}
+          <button onClick={() => handleStudyClick(deck.id)}>Estudar</button>
+          <button onClick={() => handleEditClick(deck.id)}>Editar</button>
         </div>
       ))}
     </div>
