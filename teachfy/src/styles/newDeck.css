@@ -1,0 +1,6 @@
+.newDeck-container {
+    display: flex;
+    justify-content: center;
+    margin-right: 10rem;
+    margin-left: 10rem;
+}
