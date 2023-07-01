@@ -8,3 +8,6 @@
 #### npm install 
 #### npm link styled-components
 #### npm run dev
+
+
+### npm install react-transition-group

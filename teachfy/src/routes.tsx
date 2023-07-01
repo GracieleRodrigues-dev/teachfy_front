@@ -13,6 +13,7 @@ import NewDeckFlashCardPage from './pages/NewDeckFlashCardPage';
 import NewDeckFlashCardByMePage from './pages/NewDeckFlashCardByMePage';
 import MyDecksPage from './pages/MyDecksPage';
 import NewDeckAvaliativoByMePage from './pages/NewDeckAvaliativoByMePage';
+import { CardTest } from './pages/CardTest';
 // import NewDeckAvaliativoByIAPage from './pages/NewDeckAvaliativoByIAPage ';
 
 export default function AppRoutes() {
@@ -30,8 +31,10 @@ export default function AppRoutes() {
       <Route path="/decks/novo-deck/flashcard/byMe" element={<NewDeckFlashCardByMePage/>}/>
       <Route path="/decks/meus-decks" element={<MyDecksPage/>}/> 
       <Route path="/decks/novo-deck/avaliativo/byMe" element={<NewDeckAvaliativoByMePage/>}/>
+      <Route path="/cardTest" element={<CardTest/>}/>
       {/* <Route path="/decks/novo-deck/avaliativo/byIA" element={<NewDeckAvaliativoByIAPage/>}/> */}
       {/* <Route path="/decks/novo-deck/flashcard/byAI" element={<NewDeckFlashCardPage/>}/> */}
+      
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
